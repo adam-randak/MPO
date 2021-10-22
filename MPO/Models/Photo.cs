@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace MPO.Models
 {
-    public class Users
+    public class Photo
+
     {
+        int ID { get; set; }
+        public byte[] IMG { get; set; }
     }
 }
