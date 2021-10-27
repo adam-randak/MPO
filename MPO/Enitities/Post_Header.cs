@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MPO.Models
+namespace MPO.Entities
 {
     public class Post_Header
     {

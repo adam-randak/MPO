@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MPO.Models
+namespace MPO.Entities
 {
     public class Post
     {
+        
         public int ID { get; set; }
         public int HEADER_ID { get; set; }
         public virtual Post_Header HEADER {get;set;}
