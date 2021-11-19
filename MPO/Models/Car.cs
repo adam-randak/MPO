@@ -12,7 +12,7 @@ namespace MPO.Models
     public string CONDITION { get; set; }
     public Boolean FIRST_OWNER { get; set; }
     public DateTime REGISTERED { get; set; }
-    public string COUNTRY { get; set; }
+    public string COUNTRY_OF_ORIGIN { get; set; }
     public string COLOR_TYPE { get; set; }
     public string COLOR { get; set; }
     public int SEATS { get; set; }
@@ -26,7 +26,7 @@ namespace MPO.Models
     public int MILES { get; set; }
     public DateTime YEAR { get; set; }
     public int BODY_TYPE { get; set; } //Relacja z modelem BodyType.cs - wykorzystana jako kategoria
-    public string ENGINE { get; set; }
+    public string ENGINE_DISPLACMENT { get; set; }
     public string BRAND { get; set; }
     public string MODEL { get; set; }
 
