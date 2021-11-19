@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace MPO.Models
 {
-    public class Users
+    public class UsersRole
     {
+            public const string Admin = "Admin";
+            public const string User = "User";
+        
     }
 }
