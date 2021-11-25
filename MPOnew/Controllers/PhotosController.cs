@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,48 +11,47 @@ namespace MPOnew.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-   
-    public class PostsController : ControllerBase
+    public class PhotosController : ControllerBase
     {
         private readonly MPODbContext _context;
 
-        public PostsController(MPODbContext context)
+        public PhotosController(MPODbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Posts
+        // GET: api/Photos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
+        public async Task<ActionResult<IEnumerable<Photo>>> GetPhotos()
         {
-            return await _context.Posts.ToListAsync();
+            return await _context.Photos.ToListAsync();
         }
 
-        // GET: api/Posts/5
+        // GET: api/Photos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> GetPost(int id)
+        public async Task<ActionResult<Photo>> GetPhoto(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
+            var photo = await _context.Photos.FindAsync(id);
 
-            if (post == null)
+            if (photo == null)
             {
                 return NotFound();
             }
 
-            return post;
+            return photo;
         }
 
-        // PUT: api/Posts/5
+        // PUT: api/Photos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPost(int id, Post post)
+        public async Task<IActionResult> PutPhoto(int id, Photo photo)
         {
-            if (id != post.ID)
+            if (id != photo.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(post).State = EntityState.Modified;
+            _context.Entry(photo).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +59,7 @@ namespace MPOnew.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PostExists(id))
+                if (!PhotoExists(id))
                 {
                     return NotFound();
                 }
@@ -74,36 +72,36 @@ namespace MPOnew.Controllers
             return NoContent();
         }
 
-        // POST: api/Posts
+        // POST: api/Photos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Post>> PostPost(Post post)
+        public async Task<ActionResult<Photo>> PostPhoto(Photo photo)
         {
-            _context.Posts.Add(post);
+            _context.Photos.Add(photo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPost", new { id = post.ID }, post);
+            return CreatedAtAction("GetPhoto", new { id = photo.ID }, photo);
         }
 
-        // DELETE: api/Posts/5
+        // DELETE: api/Photos/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePost(int id)
+        public async Task<IActionResult> DeletePhoto(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
-            if (post == null)
+            var photo = await _context.Photos.FindAsync(id);
+            if (photo == null)
             {
                 return NotFound();
             }
 
-            _context.Posts.Remove(post);
+            _context.Photos.Remove(photo);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool PostExists(int id)
+        private bool PhotoExists(int id)
         {
-            return _context.Posts.Any(e => e.ID == id);
+            return _context.Photos.Any(e => e.ID == id);
         }
     }
 }

@@ -4,14 +4,16 @@ using MPOnew.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MPOnew.Migrations
 {
     [DbContext(typeof(MPODbContext))]
-    partial class MPODbContextModelSnapshot : ModelSnapshot
+    [Migration("20211125101401_mig2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,6 +164,9 @@ namespace MPOnew.Migrations
                     b.Property<string>("MODEL")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PHOTOS_ID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("POWER_HORSES")
                         .HasColumnType("int");
 
@@ -189,6 +194,9 @@ namespace MPOnew.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("MAIN_PHOTOID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PHOTO_ID")
                         .HasColumnType("int");
 
                     b.Property<int>("PRICE")

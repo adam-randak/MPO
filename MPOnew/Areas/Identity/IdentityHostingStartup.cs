@@ -17,7 +17,7 @@ namespace MPOnew.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<MPODbContext>();
+              
 
                 services.AddDefaultIdentity<MPOnewUser>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddEntityFrameworkStores<MPODbContext>();
