@@ -4,14 +4,16 @@ using MPOnew.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MPOnew.Migrations
 {
     [DbContext(typeof(MPODbContext))]
-    partial class MPODbContextModelSnapshot : ModelSnapshot
+    [Migration("20220123174424_EditClassStructure")]
+    partial class EditClassStructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

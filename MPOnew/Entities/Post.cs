@@ -10,8 +10,12 @@ namespace MPOnew.Entities
     {
         
         public int ID { get; set; }
-        public int HEADER_ID { get; set; }
-        public virtual Post_Header HEADER {get;set;}
+        
+        public string TITLE {get; set;}
+
+        public float PRICE {get;set;}
+
+        public string IMG {get;set;}
         public string VIN { get; set; }
         public string CONDITION { get; set; }
         public Boolean FIRST_OWNER { get; set; }
@@ -31,6 +35,5 @@ namespace MPOnew.Entities
         public string BRAND { get; set; }
         public string MODEL { get; set; }
         public string DESCRIPTION { get; set; }
-        public List<Photo> PHOTOS { get; set; }
     }
 }

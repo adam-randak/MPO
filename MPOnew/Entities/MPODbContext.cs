@@ -13,9 +13,7 @@ namespace MPOnew.Entities
 
     public class MPODbContext : IdentityDbContext<MPOnewUser>
     {
-        public DbSet<Photo> Photos { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Post_Header> Post_Headers { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,11 +25,11 @@ namespace MPOnew.Entities
 
 
         {
-
+            var connection = @"Server=localhost;Database=mpo_sql;User=sa;Password=someThingComplicated1234;";
             base.OnConfiguring(optionsBuilder);
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=MPOnew; Integrated Security=True;");
+                optionsBuilder.UseSqlServer(connection);
             }
         }
 
